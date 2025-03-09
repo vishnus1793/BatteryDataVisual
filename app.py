@@ -25,8 +25,14 @@ if uploaded_file is not None:
             source = cols[2].get_text(strip=True)
             percent = cols[3].get_text(strip=True).replace('%', '').strip()
             power = cols[4].get_text(strip=True).replace('mWh', '').strip()
-            recent_usage.append([time, state, source, int(percent), int(power)])
-
+            
+            try:
+                percent = int(percent) if percent.isdigit() else None
+                power = int(power) if power.isdigit() else None
+                recent_usage.append([time, state, source, percent, power])
+            except ValueError as e:
+                st.error(f"Data conversion error at time {time}: {e}")
+    
     # Convert to DataFrame
     df = pd.DataFrame(recent_usage, columns=["Time", "State", "Source", "Battery %", "Power (mWh)"])
     df["Time"] = pd.to_datetime(df["Time"], errors='coerce')
