@@ -8,12 +8,14 @@
 - 🌐 **Web-based interface** (no installation required)  
 - ⚡ **Powered by Streamlit** for a smooth and interactive experience  
 
+
 ## 🔗 Live Demo
 Try it out here:  
 👉 [BatteryDataVisual](https://batterydatavisual.streamlit.app/)
 
 ## 🛠️ Installation (Optional - For Local Use)
 You can also run the app locally using **Python** and **Streamlit**.
+
 
 ### 1️⃣ Clone the Repository
 ```sh
